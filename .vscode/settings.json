@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "*.tpp": "cpp",
+        "iostream": "cpp",
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "functional": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "streambuf": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp"
+    }
+}
