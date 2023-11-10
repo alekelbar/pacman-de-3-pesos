@@ -2,7 +2,7 @@
 #include "Player.hpp"
 
 void Player::move() {
-  sf::Vector2f movement = {0, 0};
+  sf::Vector2f movement = this->sprite->getPosition();
 
   switch (this->dir) {
   case Player::up:
@@ -21,7 +21,7 @@ void Player::move() {
     break;
   }
 
-  this->sprite->move(movement);
+  this->sprite->setPosition(movement);
 }
 
 void Player::setDirection(direction dir) {
@@ -47,7 +47,7 @@ Player::Player() {
 
   // stats...
   this->lives = 3;
-  this->speed = 1;
+  this->speed = 4;
   this->hasSuperPower = false;
   this->dir = Player::right;
 }
