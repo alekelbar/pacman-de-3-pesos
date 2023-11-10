@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
@@ -60,31 +61,38 @@ public:
         }
     }
 
+    void removeTile(sf::Vector2f pos)
+    {
+        map[(int)(pos.y / BLOCK_SIZE)][(int)(pos.x / BLOCK_SIZE)] = 'b';
+    }
+
+    std::vector<Tile> getTiles() { return this->tiles; }
+
 private:
     std::vector<Tile> tiles;
     std::string map[23] = {
-        "***********************",
+        "*****p***********p*****",
         "*ppp*pfpppppppppwp*ppp*",
-        "*p*p*p*p*******p*p*p*p*",
+        "*p*p*p*p***b***p*p*p*p*",
         "*ppppppp*ppppp*ppppppp*",
         "*ppp*p***p***p***p*ppp*",
         "*p*p*p***p*g*p***p*p*p*",
         "*ppp*p***p***p***p*ppp*",
         "*****p***ppppp***p*****",
-        "*ppppp***********ppppp*",
+        "*ppppp*****b*****ppppp*",
         "*****p*ppppppppp*p*****",
         "pppppppp***p***pppppppp",
-        "*******p*ppppp*p*******",
-        "*******p*******p*******",
-        "*******ppppppppp*******",
-        "***********************",
-        "***********************",
-        "***********************",
-        "***********************",
-        "***********************",
-        "***********************",
-        "***********************",
-        "***********************",
-        "***********************",
+        "*****p*p*ppppp*p*p*****",
+        "*****p*p*******p*p*****",
+        "*****p*ppppppppp*p*****",
+        "*****p***********p*****",
+        "*****p***********p*****",
+        "*****p***********p*****",
+        "*****p***********p*****",
+        "*****p***********p*****",
+        "*****p***********p*****",
+        "*****p***********p*****",
+        "*****p***********p*****",
+        "*****p***********p*****",
     };
 };

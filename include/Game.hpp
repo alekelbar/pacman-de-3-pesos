@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include "TileMap.hpp"
 
+const int GAME_SCREN_SIZE = 368;
+
 class Game
 {
 
@@ -13,6 +15,6 @@ private:
 
 public:
   Game();
-  void updatePlayerDirection();
+  void playerMovement();
   int gameLoop();
 };

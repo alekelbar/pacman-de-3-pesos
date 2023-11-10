@@ -1,16 +1,14 @@
 #include "../include/Game.hpp"
 #include "Game.hpp"
 
-const int GAME_SCREN_SIZE = 391;
-
 Game::Game()
 {
   window = new sf::RenderWindow(sf::VideoMode(GAME_SCREN_SIZE, GAME_SCREN_SIZE), "Pacman");
-  player = new Player();
+  player = new Player({16, 16});
   window->setFramerateLimit(20);
 }
 
-void Game::updatePlayerDirection()
+void Game::playerMovement()
 {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
   {
@@ -29,7 +27,9 @@ void Game::updatePlayerDirection()
     player->setDirection(Player::direction::right);
   }
 
-  player->move();
+  player->moveForward();
+  player->playerCollision(tileMap);
+  player->teleportIfPossible();
 }
 
 int Game::gameLoop()
@@ -44,9 +44,17 @@ int Game::gameLoop()
       {
         window->close();
       }
+
+      if (event.type == sf::Event::KeyPressed)
+      {
+        if (event.key.code == sf::Keyboard::Escape)
+        {
+          window->close();
+        }
+      }
     }
     // Actualizacines...
-    updatePlayerDirection();
+    playerMovement();
     // dibujado...
     window->clear();
     tileMap.renderMap(*window);

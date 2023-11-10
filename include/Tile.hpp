@@ -1,8 +1,9 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-const int BLOCK_SIZE = 17;
+const int BLOCK_SIZE = 16;
 
 class Tile
 {
@@ -13,6 +14,8 @@ private:
 public:
     sf::Shape *getShape() { return this->shape; }
 
+    char getSymbol() { return this->symbol; }
+
     Tile(int row, int col, char symbol = '*')
     {
         this->symbol = symbol;
@@ -22,7 +25,7 @@ public:
             shape = new sf::RectangleShape({BLOCK_SIZE - 2, BLOCK_SIZE - 2}); // -2 para compensar el outline...
             shape->setPosition({col * BLOCK_SIZE, row * BLOCK_SIZE});
             shape->setFillColor(sf::Color::Blue);
-            shape->setOutlineThickness(2);
+            // shape->setOutlineThickness(2);
             shape->setOutlineColor(sf::Color::Black);
             break;
 
